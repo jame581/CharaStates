@@ -91,6 +91,7 @@ public partial class CharacterStateMachine : Node
 		if(CurrentState != null)
 		{
 			CurrentState.OnExit();
+			CurrentState.NextState = null;
 		}
 
 		CurrentState = newState;
