@@ -80,11 +80,17 @@ public partial class CharacterStateMachine : Node
 		CurrentState.StateInput(@event);
 	}
 
-	private void ChangeState(State newState)
+	public void ChangeState(State newState)
 	{
 		if(newState == null)
 		{
 			GD.PushError("NewState is null.");
+			return;
+		}
+
+		if(CurrentState == newState)
+		{
+			GD.Print("NewState " + newState.Name + " is the same as CurrentState.");
 			return;
 		}
 
