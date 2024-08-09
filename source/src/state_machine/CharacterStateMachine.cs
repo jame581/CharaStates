@@ -21,6 +21,7 @@ public partial class CharacterStateMachine : Node
 			if (node is State state)
 			{
 				state.Character = Character;
+				state.AnimatedSprite = Character.GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 				states.Add(state);
 			}
 			else

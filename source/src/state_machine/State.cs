@@ -6,6 +6,8 @@ public partial class State : Node
 	public bool CanMove { get; set; } = true;
 	
 	public CharacterBody2D Character { get; set; }
+
+	public AnimatedSprite2D AnimatedSprite { get; set; }
 	
 	public State NextState { get; set; }
 	
@@ -17,27 +19,28 @@ public partial class State : Node
 
 	}
 
-	public void StateProcess(float delta)
+	public virtual void StateProcess(float delta)
 	{
 
 	}
 
-	public void StatePhysicsProcess(float delta)
+	public virtual void StatePhysicsProcess(float delta)
 	{
 
 	}
 
-	public void StateInput(InputEvent @event)
+	public virtual void StateInput(InputEvent @event)
 	{
 
 	}
 
-	public void OnEnter()
+	public virtual void OnEnter()
 	{
 		StateIsActive = true;
+		GD.Print("State Entered " + this.Name);
 	}
 
-	public void OnExit()
+	public virtual void OnExit()
 	{
 		StateIsActive = false;
 	}
