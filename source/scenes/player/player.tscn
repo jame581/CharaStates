@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://brqa1k6hudm8g"]
+[gd_scene load_steps=17 format=3 uid="uid://brqa1k6hudm8g"]
 
 [ext_resource type="Script" path="res://src/player/Player.cs" id="1_1cc4n"]
 [ext_resource type="Texture2D" uid="uid://brmdey2y7jkpg" path="res://assets/sprites/characters/player/player_action1.png" id="1_klsl0"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://src/player/MovementState.cs" id="11_sb08o"]
 [ext_resource type="Script" path="res://src/player/JumpState.cs" id="12_k5830"]
 [ext_resource type="Script" path="res://src/player/FallState.cs" id="13_ox0um"]
+[ext_resource type="Script" path="res://src/state_machine/StateDebugLabel.cs" id="14_oxt3d"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hst07"]
 animations = [{
@@ -104,3 +105,19 @@ FallState = NodePath("../FallState")
 [node name="FallState" type="Node" parent="StateMachine" node_paths=PackedStringArray("GroundState")]
 script = ExtResource("13_ox0um")
 GroundState = NodePath("../MovementState")
+
+[node name="StateDebugLabel" type="Label" parent="." node_paths=PackedStringArray("characterStateMachine")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.5
+offset_top = -75.0
+offset_right = 24.5
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "State: "
+script = ExtResource("14_oxt3d")
+characterStateMachine = NodePath("../StateMachine")

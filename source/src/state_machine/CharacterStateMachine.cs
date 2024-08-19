@@ -3,11 +3,15 @@ using System.Collections.Generic;
 
 public partial class CharacterStateMachine : Node
 {
+	[Signal]
+	public delegate void CharacterStateChangedEventHandler(string newState);
+	
 	[Export]
 	public CharacterBody2D Character { get; set; }
 
 	[Export]
 	public State CurrentState { get; set; }
+
 
     private List<State> states;
 
@@ -102,5 +106,7 @@ public partial class CharacterStateMachine : Node
 
 		CurrentState = newState;
 		CurrentState.OnEnter();
+
+		EmitSignal(SignalName.CharacterStateChanged, CurrentState.Name);
 	}
 }
