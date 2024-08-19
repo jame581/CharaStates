@@ -1,12 +1,38 @@
 [gd_scene load_steps=3 format=3 uid="uid://c2laxshkndnca"]
 
 [ext_resource type="Script" path="res://src/MainMenu.cs" id="1_j8up3"]
-[ext_resource type="PackedScene" uid="uid://brqa1k6hudm8g" path="res://scenes/player/player.tscn" id="2_ftlfh"]
+[ext_resource type="Texture2D" uid="uid://bgci5nlg7cmuv" path="res://assets/sprites/backgrounds/backgroundColorGrass.png" id="2_ptg8o"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_j8up3")
 
 [node name="UI" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -188.0
+offset_bottom = 188.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ptg8o")
+
+[node name="GameTitle" type="Label" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -75.0
+offset_top = 50.0
+offset_right = 75.0
+offset_bottom = 100.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Chara States"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
 
 [node name="StartButton" type="Button" parent="UI"]
 anchors_preset = 8
@@ -48,6 +74,5 @@ offset_right = 45.0
 offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Version: 0.1"
-
-[node name="Player" parent="." instance=ExtResource("2_ftlfh")]
