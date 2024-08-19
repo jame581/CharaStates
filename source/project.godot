@@ -11,7 +11,8 @@ config_version=5
 [application]
 
 config/name="CharaStates"
-run/main_scene="res://maps/test_map.tscn"
+config/version="1.0"
+run/main_scene="res://maps/main_menu.tscn"
 config/features=PackedStringArray("4.3", "C#", "Mobile")
 config/icon="res://icon.svg"
 
