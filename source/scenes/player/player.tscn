@@ -97,9 +97,10 @@ script = ExtResource("10_vlbl3")
 Character = NodePath("..")
 CurrentState = NodePath("MovementState")
 
-[node name="MovementState" type="Node" parent="StateMachine" node_paths=PackedStringArray("JumpState")]
+[node name="MovementState" type="Node" parent="StateMachine" node_paths=PackedStringArray("JumpState", "FallState")]
 script = ExtResource("11_sb08o")
 JumpState = NodePath("../JumpState")
+FallState = NodePath("../FallState")
 
 [node name="JumpState" type="Node" parent="StateMachine" node_paths=PackedStringArray("FallState")]
 script = ExtResource("12_k5830")
