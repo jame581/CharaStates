@@ -89,7 +89,8 @@ shape = SubResource("RectangleShape2D_o55bc")
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = -1000
 limit_top = 0
-limit_bottom = 750
+limit_bottom = 950
+limit_smoothed = true
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("Character", "CurrentState")]
 script = ExtResource("10_vlbl3")
