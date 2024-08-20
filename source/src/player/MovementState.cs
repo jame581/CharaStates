@@ -13,6 +13,9 @@ public partial class MovementState : State
 	[Export]
 	public State JumpState { get; set; }
 
+	[Export]
+	public State FallState { get; set; }
+
 	public override void OnEnter()
 	{
 		base.OnEnter();
@@ -41,6 +44,11 @@ public partial class MovementState : State
 		{
 			velocity.X = Mathf.MoveToward(velocity.X, 0, Speed);
 			AnimatedSprite.Play(IdleAnimation);
+		}
+
+		if (!Character.IsOnFloor())
+		{
+			NextState = FallState;
 		}
 
 		Character.Velocity = velocity;

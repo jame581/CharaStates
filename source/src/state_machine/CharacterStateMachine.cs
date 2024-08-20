@@ -67,6 +67,7 @@ public partial class CharacterStateMachine : Node
 
 		if (CurrentState.NextState != null)
 		{
+			GD.Print("Changing state to " + CurrentState.NextState.Name);
 			ChangeState(CurrentState.NextState);
 		}
 
@@ -104,6 +105,7 @@ public partial class CharacterStateMachine : Node
 			CurrentState.NextState = null;
 		}
 
+		GD.Print("Changing state to " + newState.Name);
 		CurrentState = newState;
 		CurrentState.OnEnter();
 

@@ -6,9 +6,6 @@ public partial class Player : CharacterBody2D
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 
-	[Export]
-	public State FallState { get; set; }
-
 	private AnimatedSprite2D animatedSprite;
 
 	private CharacterStateMachine stateMachine;
@@ -34,12 +31,6 @@ public partial class Player : CharacterBody2D
 		if (!IsOnFloor())
 		{
 			velocity.Y += gravity * (float)delta;
-			// Change the state to fall if the player is not on the floor.
-			if (stateMachine.CurrentState is not JumpState)
-			{
-				stateMachine.ChangeState(FallState);
-			}
-
 		}
 
 		Velocity = velocity;
