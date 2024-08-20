@@ -16,6 +16,12 @@ run/main_scene="res://maps/main_menu.tscn"
 config/features=PackedStringArray("4.3", "C#", "Mobile")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=768
+window/stretch/mode="viewport"
+
 [dotnet]
 
 project/assembly_name="CharaStates"

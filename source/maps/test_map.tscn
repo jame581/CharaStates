@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=4 uid="uid://bsbpxg8ppjqch"]
+[gd_scene load_steps=14 format=4 uid="uid://bsbpxg8ppjqch"]
 
 [ext_resource type="Texture2D" uid="uid://pl1e80kwiecp" path="res://assets/sprites/backgrounds/elements/cloudLayer1.png" id="1_0ss1i"]
 [ext_resource type="Texture2D" uid="uid://2kiv5s4n0kwb" path="res://assets/sprites/backgrounds/elements/cloudLayer2.png" id="2_yfkm6"]
 [ext_resource type="Texture2D" uid="uid://bdwwppd737jup" path="res://assets/sprites/backgrounds/elements/groundLayer1.png" id="3_tnxny"]
+[ext_resource type="Texture2D" uid="uid://cjbuoofmoq1cp" path="res://assets/sprites/backgrounds/elements/hillsLarge.png" id="4_ie61u"]
 [ext_resource type="Texture2D" uid="uid://ds1kg220f7pvo" path="res://assets/sprites/backgrounds/elements/hills.png" id="4_ln2o1"]
 [ext_resource type="Texture2D" uid="uid://cua5rm6t4klcn" path="res://assets/sprites/tilesets/grass_sheet.png" id="5_itthd"]
 [ext_resource type="Texture2D" uid="uid://2ffruknwq3yh" path="res://assets/sprites/tilesets/choco_sheet.png" id="6_eqxrt"]
@@ -172,70 +173,56 @@ sources/2 = SubResource("TileSetAtlasSource_rx7j2")
 
 [node name="TestMap" type="Node2D"]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="ParallaxBackground" type="Node2D" parent="."]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.3, 1)
-motion_mirroring = Vector2(998.4, 0)
-
-[node name="BackgroundSprite" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2(0.65, 0.65)
-texture = ExtResource("1_0ss1i")
-centered = false
-
-[node name="BackgroundSprite2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2(0.65, 0.65)
-texture = ExtResource("1_0ss1i")
-centered = false
-offset = Vector2(998.4, 0)
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.5, 1)
-motion_mirroring = Vector2(998.4, 0)
+[node name="ParallaxLayer2" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(0.1, 1)
+scroll_offset = Vector2(0, -75)
+repeat_size = Vector2(1024, 0)
+repeat_times = 3
 
 [node name="BackgroundSprite" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-scale = Vector2(0.65, 0.65)
 texture = ExtResource("2_yfkm6")
 centered = false
-offset = Vector2(0, 175)
 
-[node name="BackgroundSprite2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-scale = Vector2(0.65, 0.65)
-texture = ExtResource("2_yfkm6")
+[node name="ParallaxLayer" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(0.2, 1)
+repeat_size = Vector2(1024, 0)
+repeat_times = 3
+
+[node name="BackgroundSprite" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("1_0ss1i")
 centered = false
-offset = Vector2(998.4, 175)
 
-[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.6, 1)
-motion_mirroring = Vector2(1325, 0)
+[node name="ParallaxLayer4" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(0.4, 1)
+scroll_offset = Vector2(0, 200)
+repeat_size = Vector2(1024, 0)
+repeat_times = 3
 
 [node name="BackgroundSprite" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
-scale = Vector2(0.65, 0.65)
 texture = ExtResource("4_ln2o1")
 centered = false
-offset = Vector2(0, 350)
 
-[node name="BackgroundSprite2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
-scale = Vector2(0.65, 0.65)
-texture = ExtResource("4_ln2o1")
+[node name="ParallaxLayer6" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(0.6, 1)
+scroll_offset = Vector2(0, 350)
+repeat_size = Vector2(1024, 0)
+repeat_times = 3
+
+[node name="BackgroundSprite" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
+texture = ExtResource("4_ie61u")
 centered = false
-offset = Vector2(1020, 350)
 
-[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.8, 1)
-motion_mirroring = Vector2(1314, 0)
+[node name="ParallaxLayer5" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(0.8, 1)
+scroll_offset = Vector2(0, 500)
+repeat_size = Vector2(1024, 0)
+repeat_times = 3
 
 [node name="BackgroundSprite" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
-scale = Vector2(0.65, 0.65)
 texture = ExtResource("3_tnxny")
 centered = false
-offset = Vector2(0, 700)
-
-[node name="BackgroundSprite2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
-scale = Vector2(0.65, 0.65)
-texture = ExtResource("3_tnxny")
-centered = false
-offset = Vector2(998.4, 700)
 
 [node name="TilemapLayer" type="TileMapLayer" parent="."]
 use_parent_material = true
