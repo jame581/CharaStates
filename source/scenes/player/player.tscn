@@ -121,6 +121,7 @@ FallState = NodePath("../FallState")
 [node name="JumpState" type="Node" parent="StateMachine" node_paths=PackedStringArray("FallState")]
 script = ExtResource("12_k5830")
 FallState = NodePath("../FallState")
+AllowAirControl = true
 
 [node name="FallState" type="Node" parent="StateMachine" node_paths=PackedStringArray("GroundState")]
 script = ExtResource("13_ox0um")

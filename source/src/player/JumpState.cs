@@ -11,6 +11,9 @@ public partial class JumpState : State
 	[Export]
 	public State FallState { get; set; }
 
+	[Export]
+	public bool AllowAirControl { get; set; } = false;
+
 	public override void OnEnter()
 	{
 		base.OnEnter();
@@ -30,5 +33,17 @@ public partial class JumpState : State
 
 		if (Character.Velocity.Y > 0)
 			NextState = FallState;
+
+		if (AllowAirControl)
+		{
+			Vector2 velocity = Character.Velocity;
+			float direction = Input.GetAxis("left", "right");
+			if (direction != 0)
+			{
+				velocity.X = direction * MovementSpeed;
+			}
+
+			Character.Velocity = velocity;
+		}
 	}
 }

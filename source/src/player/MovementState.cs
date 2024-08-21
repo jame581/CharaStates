@@ -2,8 +2,6 @@ using Godot;
 
 public partial class MovementState : State
 {
-	public const float Speed = 300.0f;
-
 	[ExportCategory("State Setup")]
 	[Export]
 	public string IdleAnimation { get; set; } = "idle";
@@ -40,12 +38,12 @@ public partial class MovementState : State
 		float direction = Input.GetAxis("left", "right");
 		if (direction != 0)
 		{
-			velocity.X = direction * Speed;
+			velocity.X = direction * MovementSpeed;
 			AnimatedSprite.Play(WalkAnimation);
 		}
 		else
 		{
-			velocity.X = Mathf.MoveToward(velocity.X, 0, Speed);
+			velocity.X = Mathf.MoveToward(velocity.X, 0, MovementSpeed);
 			AnimatedSprite.Play(IdleAnimation);
 		}
 

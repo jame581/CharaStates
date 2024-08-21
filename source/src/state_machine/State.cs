@@ -5,6 +5,8 @@ public partial class State : Node
 	[Export]
 	public bool CanMove { get; set; } = true;
 	
+	public const float MovementSpeed = 300.0f;
+
 	public CharacterBody2D Character { get; set; }
 
 	public AnimatedSprite2D AnimatedSprite { get; set; }
