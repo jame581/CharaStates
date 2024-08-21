@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bsbpxg8ppjqch"]
+[gd_scene load_steps=18 format=4 uid="uid://bsbpxg8ppjqch"]
 
 [ext_resource type="Texture2D" uid="uid://pl1e80kwiecp" path="res://assets/sprites/backgrounds/elements/cloudLayer1.png" id="1_0ss1i"]
 [ext_resource type="Texture2D" uid="uid://2kiv5s4n0kwb" path="res://assets/sprites/backgrounds/elements/cloudLayer2.png" id="2_yfkm6"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dgk1gcsqkb1io" path="res://assets/sprites/tilesets/dirt_sheet.png" id="7_wjl4v"]
 [ext_resource type="PackedScene" uid="uid://brqa1k6hudm8g" path="res://scenes/player/player.tscn" id="8_5nm6u"]
 [ext_resource type="PackedScene" uid="uid://c3gyfgr6vynu0" path="res://scenes/kill_zone.tscn" id="10_03i84"]
+[ext_resource type="Script" path="res://src/enviroments/WinZone.cs" id="11_fxwtu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t7dq8"]
 texture = ExtResource("5_itthd")
@@ -174,6 +175,9 @@ sources/2 = SubResource("TileSetAtlasSource_rx7j2")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hhmo4"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cbr7p"]
+size = Vector2(400, 200)
+
 [node name="TestMap" type="Node2D"]
 
 [node name="ParallaxBackground" type="Node2D" parent="."]
@@ -241,3 +245,11 @@ position = Vector2(1521, 849)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
 position = Vector2(0, 36)
 shape = SubResource("WorldBoundaryShape2D_hhmo4")
+
+[node name="WinZone" type="Area2D" parent="."]
+position = Vector2(7140, 723)
+script = ExtResource("11_fxwtu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinZone"]
+position = Vector2(78, -52)
+shape = SubResource("RectangleShape2D_cbr7p")

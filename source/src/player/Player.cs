@@ -1,8 +1,10 @@
 using Godot;
-using System;
 
 public partial class Player : CharacterBody2D
 {
+	[Export]
+	public State WinnerState { get; set; }
+
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 
@@ -36,6 +38,11 @@ public partial class Player : CharacterBody2D
 		Velocity = velocity;
 		FlipSpriteByDirection();
 		MoveAndSlide();
+	}
+
+	public void SetWinnerState()
+	{
+		stateMachine.ChangeState(WinnerState);
 	}
 
 	private void FlipSpriteByDirection()

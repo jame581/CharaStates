@@ -1,11 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://brqa1k6hudm8g"]
+[gd_scene load_steps=20 format=3 uid="uid://brqa1k6hudm8g"]
 
 [ext_resource type="Script" path="res://src/player/Player.cs" id="1_1cc4n"]
 [ext_resource type="Texture2D" uid="uid://brmdey2y7jkpg" path="res://assets/sprites/characters/player/player_action1.png" id="1_klsl0"]
 [ext_resource type="Texture2D" uid="uid://l6weol271ai6" path="res://assets/sprites/characters/player/player_action2.png" id="2_tvnt3"]
 [ext_resource type="Texture2D" uid="uid://du8fq74lrjs42" path="res://assets/sprites/characters/player/player_fall.png" id="3_16t8k"]
 [ext_resource type="Texture2D" uid="uid://dt8qdgwxcci2r" path="res://assets/sprites/characters/player/player_idle.png" id="4_h4ip8"]
+[ext_resource type="Texture2D" uid="uid://d1f6vjfx026q6" path="res://assets/sprites/characters/player/player_cheer1.png" id="4_pbuf6"]
 [ext_resource type="Texture2D" uid="uid://cif1o7ayoowcj" path="res://assets/sprites/characters/player/player_jump.png" id="5_cbeig"]
+[ext_resource type="Texture2D" uid="uid://rsxavmr23fxr" path="res://assets/sprites/characters/player/player_cheer2.png" id="5_ovvr5"]
 [ext_resource type="Texture2D" uid="uid://ddq5sulb03v5k" path="res://assets/sprites/characters/player/player_kick.png" id="6_klpc7"]
 [ext_resource type="Texture2D" uid="uid://cppbxnafeojmw" path="res://assets/sprites/characters/player/player_walk1.png" id="7_chspv"]
 [ext_resource type="Texture2D" uid="uid://1jklqdmab87s" path="res://assets/sprites/characters/player/player_walk2.png" id="8_fo82n"]
@@ -14,6 +16,7 @@
 [ext_resource type="Script" path="res://src/player/JumpState.cs" id="12_k5830"]
 [ext_resource type="Script" path="res://src/player/FallState.cs" id="13_ox0um"]
 [ext_resource type="Script" path="res://src/state_machine/StateDebugLabel.cs" id="14_oxt3d"]
+[ext_resource type="Script" path="res://src/player/WinnerState.cs" id="16_d78pj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hst07"]
 animations = [{
@@ -26,6 +29,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"action",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_pbuf6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ovvr5")
+}],
+"loop": true,
+"name": &"cheer",
 "speed": 5.0
 }, {
 "frames": [{
@@ -73,17 +87,19 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o55bc"]
-size = Vector2(43, 78)
+size = Vector2(43, 75)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("WinnerState")]
 script = ExtResource("1_1cc4n")
+WinnerState = NodePath("StateMachine/WinnerState")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hst07")
-animation = &"fall"
+animation = &"cheer"
+frame_progress = 0.727807
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, 17)
+position = Vector2(1.5, 15.5)
 shape = SubResource("RectangleShape2D_o55bc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -109,6 +125,11 @@ FallState = NodePath("../FallState")
 [node name="FallState" type="Node" parent="StateMachine" node_paths=PackedStringArray("GroundState")]
 script = ExtResource("13_ox0um")
 GroundState = NodePath("../MovementState")
+
+[node name="WinnerState" type="Node" parent="StateMachine"]
+script = ExtResource("16_d78pj")
+CheerAnimation = "cheer"
+CanMove = false
 
 [node name="StateDebugLabel" type="Label" parent="." node_paths=PackedStringArray("characterStateMachine")]
 anchors_preset = 8
