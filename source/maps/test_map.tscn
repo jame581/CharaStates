@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://bsbpxg8ppjqch"]
+[gd_scene load_steps=27 format=4 uid="uid://bsbpxg8ppjqch"]
 
 [ext_resource type="Texture2D" uid="uid://pl1e80kwiecp" path="res://assets/sprites/backgrounds/elements/cloudLayer1.png" id="1_0ss1i"]
 [ext_resource type="Texture2D" uid="uid://2kiv5s4n0kwb" path="res://assets/sprites/backgrounds/elements/cloudLayer2.png" id="2_yfkm6"]
@@ -18,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://dljfrnokob3f7" path="res://assets/sprites/backgrounds/elements/house_beige_front.png" id="13_i02m2"]
 [ext_resource type="Texture2D" uid="uid://cb00fpaudrir6" path="res://assets/sprites/backgrounds/elements/house_grey_front.png" id="14_50w77"]
 [ext_resource type="Texture2D" uid="uid://do66kxn7ytj6e" path="res://assets/sprites/backgrounds/elements/tree09.png" id="15_tkj43"]
+[ext_resource type="AudioStream" uid="uid://cftusflgmctns" path="res://assets/audio/jingles_STEEL00.ogg" id="17_pvwd8"]
+[ext_resource type="PackedScene" uid="uid://8vi1lt8bf4d8" path="res://scenes/interactables/coin.tscn" id="19_8hxbx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t7dq8"]
 texture = ExtResource("5_itthd")
@@ -304,6 +306,36 @@ texture = ExtResource("13_i02m2")
 [node name="Tree31" type="Sprite2D" parent="BackgroundElements"]
 position = Vector2(6974, 620)
 texture = ExtResource("11_fo7q0")
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("19_8hxbx")]
+position = Vector2(1151, 492)
+PickUpSound = ExtResource("17_pvwd8")
+
+[node name="Coin2" parent="Coins" instance=ExtResource("19_8hxbx")]
+position = Vector2(1714, 499)
+PickUpSound = ExtResource("17_pvwd8")
+
+[node name="Coin3" parent="Coins" instance=ExtResource("19_8hxbx")]
+position = Vector2(3672, 447)
+PickUpSound = ExtResource("17_pvwd8")
+
+[node name="Coin4" parent="Coins" instance=ExtResource("19_8hxbx")]
+position = Vector2(3887, 366)
+PickUpSound = ExtResource("17_pvwd8")
+
+[node name="Coin5" parent="Coins" instance=ExtResource("19_8hxbx")]
+position = Vector2(5146, 418)
+PickUpSound = ExtResource("17_pvwd8")
+
+[node name="Coin6" parent="Coins" instance=ExtResource("19_8hxbx")]
+position = Vector2(6406, 721)
+PickUpSound = ExtResource("17_pvwd8")
+
+[node name="Coin7" parent="Coins" instance=ExtResource("19_8hxbx")]
+position = Vector2(6684, 711)
+PickUpSound = ExtResource("17_pvwd8")
 
 [node name="Player" parent="." instance=ExtResource("8_5nm6u")]
 z_index = 1

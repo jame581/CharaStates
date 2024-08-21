@@ -45,6 +45,11 @@ public partial class Player : CharacterBody2D
 		stateMachine.ChangeState(WinnerState);
 	}
 
+	public void AddCoins(int value)
+	{
+		// Add the coins to the player's inventory.
+	}
+
 	private void FlipSpriteByDirection()
 	{
 		if (Velocity.X < 0)
