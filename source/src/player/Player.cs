@@ -10,7 +10,13 @@ public partial class Player : CharacterBody2D
 
 	private AnimatedSprite2D animatedSprite;
 
+	private Label scoreLabel;
+	
+	private Label stateDebugLabel;
+
 	private CharacterStateMachine stateMachine;
+
+	private int coins = 0;
 
 	public override void _Ready()
 	{
@@ -23,6 +29,14 @@ public partial class Player : CharacterBody2D
 		stateMachine = GetNode<CharacterStateMachine>("StateMachine");
 		if (stateMachine == null)
 			GD.PrintErr("StateMachine node not found.");
+
+		scoreLabel = GetNode<Label>("PlayerUI/ScoreLabel");
+		if (scoreLabel == null)
+			GD.PrintErr("ScoreLabel node not found.");
+
+		stateDebugLabel = GetNode<Label>("StateDebugLabel");
+		if (stateDebugLabel == null)
+			GD.PrintErr("DebugLabel node not found.");
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -47,7 +61,16 @@ public partial class Player : CharacterBody2D
 
 	public void AddCoins(int value)
 	{
-		// Add the coins to the player's inventory.
+		coins += value;
+
+		if (scoreLabel != null)
+			scoreLabel.Text = $"Coins: {coins}";
+	}
+
+	public void ShowDebugLabel(bool show)
+	{
+		if (stateDebugLabel != null)
+			stateDebugLabel.Visible = show;
 	}
 
 	private void FlipSpriteByDirection()

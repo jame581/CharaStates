@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://bsbpxg8ppjqch"]
+[gd_scene load_steps=28 format=4 uid="uid://bsbpxg8ppjqch"]
 
 [ext_resource type="Texture2D" uid="uid://pl1e80kwiecp" path="res://assets/sprites/backgrounds/elements/cloudLayer1.png" id="1_0ss1i"]
 [ext_resource type="Texture2D" uid="uid://2kiv5s4n0kwb" path="res://assets/sprites/backgrounds/elements/cloudLayer2.png" id="2_yfkm6"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://do66kxn7ytj6e" path="res://assets/sprites/backgrounds/elements/tree09.png" id="15_tkj43"]
 [ext_resource type="AudioStream" uid="uid://cftusflgmctns" path="res://assets/audio/jingles_STEEL00.ogg" id="17_pvwd8"]
 [ext_resource type="PackedScene" uid="uid://8vi1lt8bf4d8" path="res://scenes/interactables/coin.tscn" id="19_8hxbx"]
+[ext_resource type="Script" path="res://src/DebugMenu.cs" id="21_o4kwp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t7dq8"]
 texture = ExtResource("5_itthd")
@@ -338,6 +339,7 @@ position = Vector2(6684, 711)
 PickUpSound = ExtResource("17_pvwd8")
 
 [node name="Player" parent="." instance=ExtResource("8_5nm6u")]
+unique_name_in_owner = true
 z_index = 1
 position = Vector2(212, 293)
 
@@ -355,3 +357,26 @@ script = ExtResource("11_fxwtu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WinZone"]
 position = Vector2(49, -52)
 shape = SubResource("RectangleShape2D_cbr7p")
+
+[node name="DebugUI" type="CanvasLayer" parent="."]
+
+[node name="MenuButton" type="MenuButton" parent="DebugUI"]
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 177.0
+offset_bottom = 63.0
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.61301, 0, 0.144122, 1)
+theme_override_colors/font_pressed_color = Color(0.28485, 0.28485, 0.28485, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Debug Menu"
+item_count = 2
+popup/item_0/text = "Show player state"
+popup/item_0/checkable = 1
+popup/item_0/checked = true
+popup/item_1/id = 2
+popup/item_1/separator = true
+script = ExtResource("21_o4kwp")
