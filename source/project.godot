@@ -26,6 +26,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="CharaStates"
 
+[gui]
+
+theme/custom_font="res://assets/fonts/Kenney Mini.ttf"
+
 [input]
 
 left={

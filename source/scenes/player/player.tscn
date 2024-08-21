@@ -96,7 +96,7 @@ WinnerState = NodePath("StateMachine/WinnerState")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hst07")
 animation = &"cheer"
-frame_progress = 0.727807
+frame_progress = 0.596038
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, 15.5)
@@ -143,6 +143,7 @@ offset_right = 24.5
 offset_bottom = -52.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "State: "
 script = ExtResource("14_oxt3d")
 characterStateMachine = NodePath("../StateMachine")
