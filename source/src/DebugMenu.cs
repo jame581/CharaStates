@@ -24,12 +24,14 @@ public partial class DebugMenu : MenuButton
 		{
 			case 0:
 				// Get popup's check button.
-				bool isChecked = GetPopup().IsItemChecked(0);
-				GetPopup().SetItemChecked(0, !isChecked);
-				player.ShowDebugLabel(!isChecked);
+				bool isDebugLabelEnabled = !GetPopup().IsItemChecked(0);
+				GetPopup().SetItemChecked(0, isDebugLabelEnabled);
+				player.ShowDebugLabel(isDebugLabelEnabled);
 				break;
-			case 1:
-				player.ShowDebugLabel(false);
+			case 2:
+				bool allowAirControl = !GetPopup().IsItemChecked(0);
+				GetPopup().SetItemChecked(2, allowAirControl);
+				player.StateMachine.DebugAllowAirControl(allowAirControl);
 				break;
 			default:
 				GD.Print("Invalid ID: " + id);

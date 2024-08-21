@@ -12,7 +12,6 @@ public partial class CharacterStateMachine : Node
 	[Export]
 	public State CurrentState { get; set; }
 
-
     private List<State> states;
 
 	// Called when the node enters the scene tree for the first time.
@@ -110,5 +109,16 @@ public partial class CharacterStateMachine : Node
 		CurrentState.OnEnter();
 
 		EmitSignal(SignalName.CharacterStateChanged, CurrentState.Name);
+	}
+
+	public void DebugAllowAirControl(bool allowAirControl)
+	{
+		foreach (State state in states)
+		{
+			if (state is JumpState jumpState)
+			{
+				jumpState.AllowAirControl = allowAirControl;
+			}
+		}
 	}
 }
