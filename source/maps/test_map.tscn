@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://bsbpxg8ppjqch"]
+[gd_scene load_steps=29 format=4 uid="uid://bsbpxg8ppjqch"]
 
 [ext_resource type="Texture2D" uid="uid://pl1e80kwiecp" path="res://assets/sprites/backgrounds/elements/cloudLayer1.png" id="1_0ss1i"]
 [ext_resource type="Texture2D" uid="uid://2kiv5s4n0kwb" path="res://assets/sprites/backgrounds/elements/cloudLayer2.png" id="2_yfkm6"]
@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://cftusflgmctns" path="res://assets/audio/jingles_STEEL00.ogg" id="17_pvwd8"]
 [ext_resource type="PackedScene" uid="uid://8vi1lt8bf4d8" path="res://scenes/interactables/coin.tscn" id="19_8hxbx"]
 [ext_resource type="Script" path="res://src/DebugMenu.cs" id="21_o4kwp"]
+[ext_resource type="Script" path="res://src/ui/PauseMenu.cs" id="22_o4hdt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t7dq8"]
 texture = ExtResource("5_itthd")
@@ -338,10 +339,11 @@ PickUpSound = ExtResource("17_pvwd8")
 position = Vector2(6684, 711)
 PickUpSound = ExtResource("17_pvwd8")
 
-[node name="Player" parent="." instance=ExtResource("8_5nm6u")]
+[node name="Player" parent="." node_paths=PackedStringArray("PauseMenu") instance=ExtResource("8_5nm6u")]
 unique_name_in_owner = true
 z_index = 1
 position = Vector2(212, 293)
+PauseMenu = NodePath("../DebugUI/PauseMenu")
 
 [node name="KillZone" parent="." instance=ExtResource("10_03i84")]
 position = Vector2(1521, 849)
@@ -384,3 +386,63 @@ popup/item_2/checkable = 1
 popup/item_2/checked = true
 popup/item_2/id = 2
 script = ExtResource("21_o4kwp")
+
+[node name="PauseMenu" type="Panel" parent="DebugUI"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("22_o4hdt")
+
+[node name="Label" type="Label" parent="DebugUI/PauseMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -75.0
+offset_top = 20.0
+offset_right = 75.0
+offset_bottom = 70.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Pause Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="DebugUI/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -17.5
+offset_right = 50.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Continue"
+
+[node name="MainMenuButton" type="Button" parent="DebugUI/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = 45.0
+offset_right = 50.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Main menu"

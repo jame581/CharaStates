@@ -5,6 +5,9 @@ public partial class Player : CharacterBody2D
 	[Export]
 	public State WinnerState { get; set; }
 
+	[Export]
+	public Panel PauseMenu { get; set; }
+
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 
@@ -54,6 +57,17 @@ public partial class Player : CharacterBody2D
 		Velocity = velocity;
 		FlipSpriteByDirection();
 		MoveAndSlide();
+	}
+
+	public override void _Input(InputEvent @event)
+	{
+		if (@event.IsActionPressed("pause"))
+		{
+			if (PauseMenu != null)
+			{
+				PauseMenu.Visible = !PauseMenu.Visible;
+			}
+		}
 	}
 
 	public void SetWinnerState()
