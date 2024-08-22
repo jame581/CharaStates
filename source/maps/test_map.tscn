@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://bsbpxg8ppjqch"]
+[gd_scene load_steps=30 format=4 uid="uid://bsbpxg8ppjqch"]
 
 [ext_resource type="Texture2D" uid="uid://pl1e80kwiecp" path="res://assets/sprites/backgrounds/elements/cloudLayer1.png" id="1_0ss1i"]
 [ext_resource type="Texture2D" uid="uid://2kiv5s4n0kwb" path="res://assets/sprites/backgrounds/elements/cloudLayer2.png" id="2_yfkm6"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://do66kxn7ytj6e" path="res://assets/sprites/backgrounds/elements/tree09.png" id="15_tkj43"]
 [ext_resource type="PackedScene" uid="uid://8vi1lt8bf4d8" path="res://scenes/interactables/coin.tscn" id="19_8hxbx"]
 [ext_resource type="Script" path="res://src/ui/DebugMenu.cs" id="21_o4kwp"]
+[ext_resource type="Script" path="res://src/ui/WinGameMenu.cs" id="22_1gxet"]
 [ext_resource type="Script" path="res://src/ui/PauseMenu.cs" id="22_o4hdt"]
 [ext_resource type="AudioStream" uid="uid://dywukqcchglay" path="res://assets/audio/163644__audiobitsandbytes__music-box-lullaby-clip.wav" id="23_wnx3m"]
 
@@ -426,6 +427,66 @@ grow_vertical = 2
 text = "Continue"
 
 [node name="MainMenuButton" type="Button" parent="UI/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = 45.0
+offset_right = 50.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Main menu"
+
+[node name="WinScreen" type="Panel" parent="UI"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("22_1gxet")
+
+[node name="Label" type="Label" parent="UI/WinScreen"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -75.0
+offset_top = 20.0
+offset_right = 75.0
+offset_bottom = 70.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "You win the game!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="UI/WinScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -17.5
+offset_right = 50.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Restart level"
+
+[node name="MainMenuButton" type="Button" parent="UI/WinScreen"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
