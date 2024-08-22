@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c2laxshkndnca"]
 
-[ext_resource type="Script" path="res://src/MainMenu.cs" id="1_j8up3"]
+[ext_resource type="Script" path="res://src/ui/MainMenu.cs" id="1_j8up3"]
 [ext_resource type="Texture2D" uid="uid://bgci5nlg7cmuv" path="res://assets/sprites/backgrounds/backgroundColorGrass.png" id="2_ptg8o"]
 
 [node name="MainMenu" type="Node2D"]

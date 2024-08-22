@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://do66kxn7ytj6e" path="res://assets/sprites/backgrounds/elements/tree09.png" id="15_tkj43"]
 [ext_resource type="AudioStream" uid="uid://cftusflgmctns" path="res://assets/audio/jingles_STEEL00.ogg" id="17_pvwd8"]
 [ext_resource type="PackedScene" uid="uid://8vi1lt8bf4d8" path="res://scenes/interactables/coin.tscn" id="19_8hxbx"]
-[ext_resource type="Script" path="res://src/DebugMenu.cs" id="21_o4kwp"]
+[ext_resource type="Script" path="res://src/ui/DebugMenu.cs" id="21_o4kwp"]
 [ext_resource type="Script" path="res://src/ui/PauseMenu.cs" id="22_o4hdt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t7dq8"]
