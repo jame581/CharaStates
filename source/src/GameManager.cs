@@ -35,8 +35,11 @@ public partial class GameManager : Node
 
 		isInitialized = true;
 
+		var node = GetTree().GetCurrentScene();
+		string pathPrefix = node.GetPath();
+		GD.Print("Path prefix: " + pathPrefix);
 		// Find and assign the WinGameMenu node
-		winGameMenu = GetNode<Panel>("/root/TestMap/UI/WinScreen");
+		winGameMenu = GetNode<Panel>($"{pathPrefix}/UI/WinScreen");
 		if (winGameMenu == null)
 		{
 			GD.PrintErr("WinGameMenu node not found.");
@@ -48,7 +51,7 @@ public partial class GameManager : Node
 		}
 
 		// Find and assign the PauseMenu node
-		pauseMenu = GetNode<Panel>("/root/TestMap/UI/PauseMenu");
+		pauseMenu = GetNode<Panel>($"{pathPrefix}/UI/PauseMenu");
 		if (pauseMenu == null)
 		{
 			GD.PrintErr("PauseMenu node not found.");
@@ -60,7 +63,7 @@ public partial class GameManager : Node
 		}
 
 		// Find and assign the Player node
-		player = GetNode<Player>("/root/TestMap/%Player");
+		player = GetNode<Player>($"{pathPrefix}/%Player");
 		if (player == null)
 		{
 			GD.PrintErr("Player node not found.");
