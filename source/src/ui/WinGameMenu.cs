@@ -9,9 +9,6 @@ public partial class WinGameMenu : Panel
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		// // Set the process mode to when paused.
-		// ProcessMode = ProcessModeEnum.WhenPaused;
-
 		// Get the continue button node.
 		restartButton = GetNode<Button>("RestartButton");
 		if (restartButton == null)

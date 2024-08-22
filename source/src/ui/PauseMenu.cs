@@ -40,29 +40,28 @@ public partial class PauseMenu : Panel
 		Draw += OnDraw;
 	}
 
-    private void OnDraw()
-    {
-        isPaused = true;
+	// Called when the pause menu is drawn to screen.
+	private void OnDraw()
+	{
+		isPaused = true;
 		GetTree().Paused = isPaused;
-    }
+	}
 
 
-    private void OnMainMenuButtonPressed()
-    {
+	private void OnMainMenuButtonPressed()
+	{
 		GetTree().ChangeSceneToFile("res://maps/main_menu.tscn");
-    }
+	}
 
-
-    private void OnContinueButtonPressed()
-    {
+	private void OnContinueButtonPressed()
+	{
 		// Unpause the game.
-        isPaused = false;
+		isPaused = false;
 
 		// Set the paused property of the scene tree to false.
 		GetTree().Paused = isPaused;
 
 		// Hide the pause menu.
 		Visible = false;
-    }
-
+	}
 }

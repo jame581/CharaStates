@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public partial class KillZone : Area2D
 {
@@ -11,11 +10,6 @@ public partial class KillZone : Area2D
 		timer = GetNode<Timer>("Timer");
 		if (timer == null)
 			GD.PrintErr("Timer node not found.");
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
 	}
 
 	public void _on_body_entered(Node body)

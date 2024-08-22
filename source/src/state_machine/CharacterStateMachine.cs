@@ -58,46 +58,54 @@ public partial class CharacterStateMachine : Node
 
 	public override void _PhysicsProcess(double delta)
 	{
+		// Check if the CurrentState is set.
 		if(CurrentState == null)
 		{
 			GD.PushError("CurrentState is not set.");
 			return;
 		}
 
+		// Check if the NextState is set.
 		if (CurrentState.NextState != null)
 		{
 			GD.Print("Changing state to " + CurrentState.NextState.Name);
 			ChangeState(CurrentState.NextState);
 		}
 
+		// Call the StatePhysicsProcess method of the CurrentState.
 		CurrentState.StatePhysicsProcess((float)delta);
 	}
 
 	public override void _Input(InputEvent @event)
 	{
+		// Check if the CurrentState is set.
 		if(CurrentState == null)
 		{
 			GD.PushError("CurrentState is not set.");
 			return;
 		}
 
+		// Call the StateInput method of the CurrentState.
 		CurrentState.StateInput(@event);
 	}
 
 	public void ChangeState(State newState)
 	{
+		// Check if the NewState is set.
 		if(newState == null)
 		{
 			GD.PushError("NewState is null.");
 			return;
 		}
 
+		// Check if the NewState is the same as the CurrentState.
 		if(CurrentState == newState)
 		{
 			GD.Print("NewState " + newState.Name + " is the same as CurrentState.");
 			return;
 		}
 
+		// Check if the CurrentState is set.
 		if(CurrentState != null)
 		{
 			CurrentState.OnExit();
@@ -111,6 +119,7 @@ public partial class CharacterStateMachine : Node
 		EmitSignal(SignalName.CharacterStateChanged, CurrentState.Name);
 	}
 
+	// Debug method called from debug menu to allow air control.
 	public void DebugAllowAirControl(bool allowAirControl)
 	{
 		foreach (State state in states)

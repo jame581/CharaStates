@@ -12,6 +12,7 @@ public partial class GameManager : Node
 
 	private Player player;
 
+	// Called when player reach end of the level
 	public void GameCompleted()
 	{
 		GD.Print("Game completed.");
@@ -20,8 +21,10 @@ public partial class GameManager : Node
 		winGameMenu.Visible = true;
 	}
 
+	// Called from level intialization
 	public void InitializeGameObjects()
 	{
+		// Check if the game manager is already initialized
 		if (isInitialized)
 		{
 			return;
@@ -29,9 +32,11 @@ public partial class GameManager : Node
 
 		isInitialized = true;
 
+		// Get the current scene node
 		var node = GetTree().GetCurrentScene();
 		string pathPrefix = node.GetPath();
 		GD.Print("Path prefix: " + pathPrefix);
+
 		// Find and assign the WinGameMenu node
 		winGameMenu = GetNode<Panel>($"{pathPrefix}/UI/WinScreen");
 		if (winGameMenu == null)

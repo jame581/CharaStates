@@ -21,27 +21,32 @@ public partial class State : Node
 
 	}
 
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public virtual void StateProcess(float delta)
 	{
 
 	}
 
+	// Called every physics frame. 'delta' is the elapsed time since the previous frame.
 	public virtual void StatePhysicsProcess(float delta)
 	{
 
 	}
 
+	// Called when the input event is received.
 	public virtual void StateInput(InputEvent @event)
 	{
 
 	}
 
+	// Called when the state is entered.
 	public virtual void OnEnter()
 	{
 		StateIsActive = true;
 		GD.Print("State Entered " + this.Name);
 	}
 
+	// Called when the state is exited.
 	public virtual void OnExit()
 	{
 		StateIsActive = false;

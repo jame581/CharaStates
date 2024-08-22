@@ -22,8 +22,8 @@ public partial class Coin : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		// Get the AudioStreamPlayer2D node
 		audioStreamPlayer = GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D");
-
 		if (audioStreamPlayer == null)
 		{
 			GD.PrintErr("AudioStreamPlayer2D node not found.");
@@ -33,6 +33,7 @@ public partial class Coin : Node2D
 			audioStreamPlayer.Stream = PickUpSound;
 		}
 
+		// Get the Timer node
 		destroyTimer = GetNode<Timer>("Timer");
 		if (destroyTimer == null)
 		{
@@ -43,12 +44,14 @@ public partial class Coin : Node2D
 			destroyTimer.Timeout += DestroyCoin;
 		}
 
+		// Get the CollisionShape2D node
 		collisionShape = GetNode<CollisionShape2D>("Area2D/CollisionShape2D");
 		if (collisionShape == null)
 		{
 			GD.PrintErr("CollisionShape2D node not found.");
 		}
 
+		// Play the idle animation
 		animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 		if (animationPlayer == null)
 		{

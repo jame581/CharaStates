@@ -1,4 +1,3 @@
-using System;
 using Godot;
 
 public partial class DebugMenu : MenuButton
@@ -23,7 +22,6 @@ public partial class DebugMenu : MenuButton
 		switch (id)
 		{
 			case 0:
-				// Get popup's check button.
 				bool isDebugLabelEnabled = !GetPopup().IsItemChecked(0);
 				GetPopup().SetItemChecked(0, isDebugLabelEnabled);
 				player.ShowDebugLabel(isDebugLabelEnabled);
