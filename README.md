@@ -1,3 +1,5 @@
+[![.github/workflows/main.yml](https://github.com/jame581/CharaStates/actions/workflows/main.yml/badge.svg)](https://github.com/jame581/CharaStates/actions/workflows/main.yml)
+
 # Chara States
 
 This is a small Godot .NET example of a state machine for characters.
