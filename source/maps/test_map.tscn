@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://bsbpxg8ppjqch"]
+[gd_scene load_steps=29 format=4 uid="uid://bsbpxg8ppjqch"]
 
 [ext_resource type="Texture2D" uid="uid://pl1e80kwiecp" path="res://assets/sprites/backgrounds/elements/cloudLayer1.png" id="1_0ss1i"]
 [ext_resource type="Texture2D" uid="uid://2kiv5s4n0kwb" path="res://assets/sprites/backgrounds/elements/cloudLayer2.png" id="2_yfkm6"]
@@ -18,7 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://dljfrnokob3f7" path="res://assets/sprites/backgrounds/elements/house_beige_front.png" id="13_i02m2"]
 [ext_resource type="Texture2D" uid="uid://cb00fpaudrir6" path="res://assets/sprites/backgrounds/elements/house_grey_front.png" id="14_50w77"]
 [ext_resource type="Texture2D" uid="uid://do66kxn7ytj6e" path="res://assets/sprites/backgrounds/elements/tree09.png" id="15_tkj43"]
-[ext_resource type="AudioStream" uid="uid://cftusflgmctns" path="res://assets/audio/jingles_STEEL00.ogg" id="17_pvwd8"]
 [ext_resource type="PackedScene" uid="uid://8vi1lt8bf4d8" path="res://scenes/interactables/coin.tscn" id="19_8hxbx"]
 [ext_resource type="Script" path="res://src/ui/DebugMenu.cs" id="21_o4kwp"]
 [ext_resource type="Script" path="res://src/ui/PauseMenu.cs" id="22_o4hdt"]
@@ -314,37 +313,30 @@ texture = ExtResource("11_fo7q0")
 
 [node name="Coin" parent="Coins" instance=ExtResource("19_8hxbx")]
 position = Vector2(1151, 492)
-PickUpSound = ExtResource("17_pvwd8")
 
 [node name="Coin2" parent="Coins" instance=ExtResource("19_8hxbx")]
 position = Vector2(1714, 499)
-PickUpSound = ExtResource("17_pvwd8")
 
 [node name="Coin3" parent="Coins" instance=ExtResource("19_8hxbx")]
 position = Vector2(3672, 447)
-PickUpSound = ExtResource("17_pvwd8")
 
 [node name="Coin4" parent="Coins" instance=ExtResource("19_8hxbx")]
 position = Vector2(3887, 366)
-PickUpSound = ExtResource("17_pvwd8")
 
 [node name="Coin5" parent="Coins" instance=ExtResource("19_8hxbx")]
 position = Vector2(5146, 418)
-PickUpSound = ExtResource("17_pvwd8")
 
 [node name="Coin6" parent="Coins" instance=ExtResource("19_8hxbx")]
 position = Vector2(6406, 721)
-PickUpSound = ExtResource("17_pvwd8")
 
 [node name="Coin7" parent="Coins" instance=ExtResource("19_8hxbx")]
 position = Vector2(6684, 711)
-PickUpSound = ExtResource("17_pvwd8")
 
 [node name="Player" parent="." node_paths=PackedStringArray("PauseMenu") instance=ExtResource("8_5nm6u")]
 unique_name_in_owner = true
 z_index = 1
 position = Vector2(212, 293)
-PauseMenu = NodePath("../DebugUI/PauseMenu")
+PauseMenu = NodePath("../UI/PauseMenu")
 
 [node name="KillZone" parent="." instance=ExtResource("10_03i84")]
 position = Vector2(1521, 849)
@@ -361,9 +353,9 @@ script = ExtResource("11_fxwtu")
 position = Vector2(49, -52)
 shape = SubResource("RectangleShape2D_cbr7p")
 
-[node name="DebugUI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="MenuButton" type="MenuButton" parent="DebugUI"]
+[node name="DebugMenu" type="MenuButton" parent="UI"]
 offset_left = 25.0
 offset_top = 25.0
 offset_right = 177.0
@@ -388,7 +380,7 @@ popup/item_2/checked = true
 popup/item_2/id = 2
 script = ExtResource("21_o4kwp")
 
-[node name="PauseMenu" type="Panel" parent="DebugUI"]
+[node name="PauseMenu" type="Panel" parent="UI"]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -403,7 +395,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("22_o4hdt")
 
-[node name="Label" type="Label" parent="DebugUI/PauseMenu"]
+[node name="Label" type="Label" parent="UI/PauseMenu"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -418,7 +410,7 @@ text = "Pause Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ContinueButton" type="Button" parent="DebugUI/PauseMenu"]
+[node name="ContinueButton" type="Button" parent="UI/PauseMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -433,7 +425,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Continue"
 
-[node name="MainMenuButton" type="Button" parent="DebugUI/PauseMenu"]
+[node name="MainMenuButton" type="Button" parent="UI/PauseMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

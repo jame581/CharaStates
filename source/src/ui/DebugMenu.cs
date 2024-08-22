@@ -20,7 +20,7 @@ public partial class DebugMenu : MenuButton
 
 	private void MenuPopupIdPressed(long id)
 	{
-		switch	(id)
+		switch (id)
 		{
 			case 0:
 				// Get popup's check button.
@@ -29,7 +29,7 @@ public partial class DebugMenu : MenuButton
 				player.ShowDebugLabel(isDebugLabelEnabled);
 				break;
 			case 2:
-				bool allowAirControl = !GetPopup().IsItemChecked(0);
+				bool allowAirControl = !GetPopup().IsItemChecked(2);
 				GetPopup().SetItemChecked(2, allowAirControl);
 				player.StateMachine.DebugAllowAirControl(allowAirControl);
 				break;
