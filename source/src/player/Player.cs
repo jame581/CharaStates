@@ -72,6 +72,7 @@ public partial class Player : CharacterBody2D
 
 	public void SetWinnerState()
 	{
+		GD.Print("SetWinnerState");
 		stateMachine.ChangeState(WinnerState);
 	}
 

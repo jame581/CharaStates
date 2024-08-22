@@ -1,6 +1,7 @@
-[gd_scene load_steps=30 format=4 uid="uid://bsbpxg8ppjqch"]
+[gd_scene load_steps=31 format=4 uid="uid://bsbpxg8ppjqch"]
 
 [ext_resource type="Texture2D" uid="uid://pl1e80kwiecp" path="res://assets/sprites/backgrounds/elements/cloudLayer1.png" id="1_0ss1i"]
+[ext_resource type="Script" path="res://src/LevelInit.cs" id="1_cm0ma"]
 [ext_resource type="Texture2D" uid="uid://2kiv5s4n0kwb" path="res://assets/sprites/backgrounds/elements/cloudLayer2.png" id="2_yfkm6"]
 [ext_resource type="Texture2D" uid="uid://bdwwppd737jup" path="res://assets/sprites/backgrounds/elements/groundLayer1.png" id="3_tnxny"]
 [ext_resource type="Texture2D" uid="uid://cjbuoofmoq1cp" path="res://assets/sprites/backgrounds/elements/hillsLarge.png" id="4_ie61u"]
@@ -191,6 +192,7 @@ sources/2 = SubResource("TileSetAtlasSource_rx7j2")
 size = Vector2(300, 200)
 
 [node name="TestMap" type="Node2D"]
+script = ExtResource("1_cm0ma")
 
 [node name="ParallaxBackground" type="Node2D" parent="."]
 
@@ -336,7 +338,7 @@ position = Vector2(6684, 711)
 [node name="Player" parent="." node_paths=PackedStringArray("PauseMenu") instance=ExtResource("8_5nm6u")]
 unique_name_in_owner = true
 z_index = 1
-position = Vector2(212, 293)
+position = Vector2(-164, 445)
 PauseMenu = NodePath("../UI/PauseMenu")
 
 [node name="KillZone" parent="." instance=ExtResource("10_03i84")]

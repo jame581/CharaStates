@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public partial class WinGameMenu : Panel
 {
@@ -10,8 +9,8 @@ public partial class WinGameMenu : Panel
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		// Set the process mode to when paused.
-		ProcessMode = ProcessModeEnum.WhenPaused;
+		// // Set the process mode to when paused.
+		// ProcessMode = ProcessModeEnum.WhenPaused;
 
 		// Get the continue button node.
 		restartButton = GetNode<Button>("RestartButton");
@@ -22,6 +21,7 @@ public partial class WinGameMenu : Panel
 		else
 		{
 			restartButton.Pressed += OnRestartButtonPressed;
+			GD.Print("Win Game Menu - Restart button binded");
 		}
 
 		// Get the main menu button node.
@@ -33,17 +33,20 @@ public partial class WinGameMenu : Panel
 		else
 		{
 			mainMenuButton.Pressed += OnMainMenuButtonPressed;
+			GD.Print("Win Game Menu - Main menu button binded");
 		}
 	}
 
-    private void OnMainMenuButtonPressed()
-    {
+	private void OnMainMenuButtonPressed()
+	{
+		GD.Print("Returning to main menu...");
 		GetTree().ChangeSceneToFile("res://maps/main_menu.tscn");
-    }
+	}
 
 
-    private void OnRestartButtonPressed()
-    {
+	private void OnRestartButtonPressed()
+	{
+		GD.Print("Restarting game...");
 		GetTree().ReloadCurrentScene();
 	}
 }
