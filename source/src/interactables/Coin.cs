@@ -17,6 +17,8 @@ public partial class Coin : Node2D
 
 	private CollisionShape2D collisionShape;
 
+	private AnimationPlayer animationPlayer;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -46,6 +48,16 @@ public partial class Coin : Node2D
 		{
 			GD.PrintErr("CollisionShape2D node not found.");
 		}
+
+		animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+		if (animationPlayer == null)
+		{
+			GD.PrintErr("AnimationPlayer node not found.");
+		}
+		else
+		{
+			animationPlayer.Play("idle");
+		}
 	}
 
 	public void _on_area_2d_body_entered(Node body)
@@ -53,6 +65,7 @@ public partial class Coin : Node2D
 		if (body is Player)
 		{
 			GD.Print("Coin picked up.");
+			animationPlayer.Play("pickup");
 			var player = body as Player;
 			player.AddCoins(Value);
 			audioStreamPlayer.Play();
@@ -66,5 +79,4 @@ public partial class Coin : Node2D
 	{
 		QueueFree();
 	}
-
 }

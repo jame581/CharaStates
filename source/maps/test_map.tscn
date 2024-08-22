@@ -505,4 +505,5 @@ text = "Main menu"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("23_wnx3m")
+volume_db = -5.0
 autoplay = true
