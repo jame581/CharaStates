@@ -28,6 +28,26 @@ In this game, players control a character and navigate through levels. The objec
 * Space - jump
 * ESC or P - show / hide pause menu
 
+### Game Features
+
+Here are some features of the game:
+
+1. Character State Machine: dynamic gameplay with a state machine that handles different character states, such as idle, walking, jumping, and falling
+
+2. Audio effects: music and coin Immerse yourself in the game with a captivating soundtrack and sound effects that enhance the gaming experience
+
+3. Pause Menu: a menu that allows players to pause the game and access options or settings
+
+4. Win Menu: A menu that appears when the player successfully completes a level, allowing them to restart the next level or return to the main menu
+
+5. Level Prototype: Play through a fully functional prototype level that showcases the game mechanics and challenges
+
+6. Coin Collection: Collect coins scattered throughout the levels to increase your score
+
+7. Main Menu: sets the tone for the game
+
+8. Kill Zone: an area that instantly ends the game if the character falls into it
+
 ### Screenshoots
 
 ![Main Menu](screenshots/main_menu.png)
