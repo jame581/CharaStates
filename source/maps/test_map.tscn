@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://bsbpxg8ppjqch"]
+[gd_scene load_steps=30 format=4 uid="uid://bsbpxg8ppjqch"]
 
 [ext_resource type="Texture2D" uid="uid://pl1e80kwiecp" path="res://assets/sprites/backgrounds/elements/cloudLayer1.png" id="1_0ss1i"]
 [ext_resource type="Texture2D" uid="uid://2kiv5s4n0kwb" path="res://assets/sprites/backgrounds/elements/cloudLayer2.png" id="2_yfkm6"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://8vi1lt8bf4d8" path="res://scenes/interactables/coin.tscn" id="19_8hxbx"]
 [ext_resource type="Script" path="res://src/ui/DebugMenu.cs" id="21_o4kwp"]
 [ext_resource type="Script" path="res://src/ui/PauseMenu.cs" id="22_o4hdt"]
+[ext_resource type="AudioStream" uid="uid://dywukqcchglay" path="res://assets/audio/163644__audiobitsandbytes__music-box-lullaby-clip.wav" id="23_wnx3m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t7dq8"]
 texture = ExtResource("5_itthd")
@@ -446,3 +447,7 @@ offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Main menu"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_wnx3m")
+autoplay = true
