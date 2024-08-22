@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2laxshkndnca"]
+[gd_scene load_steps=4 format=3 uid="uid://c2laxshkndnca"]
 
 [ext_resource type="Script" path="res://src/ui/MainMenu.cs" id="1_j8up3"]
 [ext_resource type="Texture2D" uid="uid://bgci5nlg7cmuv" path="res://assets/sprites/backgrounds/backgroundColorGrass.png" id="2_ptg8o"]
+[ext_resource type="AudioStream" uid="uid://r37tto4krfga" path="res://assets/audio/671900__bertsz__calm-background-music.mp3" id="3_0v0qs"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_j8up3")
@@ -76,3 +77,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Version: 0.1"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0v0qs")
+autoplay = true
