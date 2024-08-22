@@ -12,12 +12,6 @@ public partial class GameManager : Node
 
 	private Player player;
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-		InitializeGameObjects();
-	}
-
 	public void GameCompleted()
 	{
 		GD.Print("Game completed.");
