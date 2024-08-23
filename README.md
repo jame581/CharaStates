@@ -56,6 +56,24 @@ Here are some features of the game:
 ![Gameplay](screenshots/gameplay_1.png)
 ![Main Menu](screenshots/gameplay_2.png)
 
+## Game Assets
+
+The following game assets were used in this project:
+
+* Graphics:
+    * [Simplified Platformer Pack](https://www.kenney.nl/assets/simplified-platformer-pack) 
+    * [Background Elements](https://www.kenney.nl/assets/background-elements)
+* Font:
+    * [Kenney Fonts](https://www.kenney.nl/assets/kenney-fonts)
+* Sounds:
+    * [Calm background Music](https://freesound.org/people/Bertsz/sounds/671900/)
+    * [Music Box Lullaby Clip](https://freesound.org/people/AudioBitsAndBytes/sounds/163644/)
+    * [Win SFX](https://freesound.org/people/jhyland/sounds/539679/)
+    * [Music Jingles](https://www.kenney.nl/assets/music-jingles)
+
+I would like to extend a special thanks to [Kenney](https://www.kenney.nl/) for amazing work and for making these assets available under the Creative Commons license. Thank you, Kenney!
+
+Please note that these assets are used under the Creative Commons license. Make sure to comply with the terms and conditions of each asset when using them in your own projects.
 
 ## Contributing
 
