@@ -11,10 +11,13 @@ config_version=5
 [application]
 
 config/name="CharaStates"
+config/description="Small Godot .NET example of state machine for characters.
+
+n this game, players control a character and navigate through levels. The objective is to overcome obstacles, pick up all coins, and reach the end of the level. The character has various states, such as idle, walking, jumping, and falling, which can be triggered by player input or game events. The state machine handles transitions between these states. Customize the state machine to create unique character behaviors and enhance the gameplay. Enjoy the adventure!"
 config/version="1.0"
 run/main_scene="res://maps/main_menu.tscn"
 config/features=PackedStringArray("4.3", "C#", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://assets/icons/CharaStates.png"
 
 [autoload]
 
