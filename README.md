@@ -55,6 +55,7 @@ Here are some features of the game:
 ![Main Menu](screenshots/main_menu.png)
 ![Gameplay](screenshots/gameplay_1.png)
 ![Main Menu](screenshots/gameplay_2.png)
+![Debug Menu](screenshots/debug_menu.png)
 
 ## Game Assets
 
