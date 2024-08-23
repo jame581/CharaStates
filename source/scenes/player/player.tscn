@@ -89,9 +89,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o55bc"]
 size = Vector2(43, 75)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("WinnerState")]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_1cc4n")
-WinnerState = NodePath("StateMachine/WinnerState")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hst07")
@@ -113,11 +112,10 @@ script = ExtResource("10_vlbl3")
 Character = NodePath("..")
 CurrentState = NodePath("MovementState")
 
-[node name="MovementState" type="Node" parent="StateMachine" node_paths=PackedStringArray("JumpState", "FallState", "WinnerState")]
+[node name="MovementState" type="Node" parent="StateMachine" node_paths=PackedStringArray("JumpState", "FallState")]
 script = ExtResource("11_sb08o")
 JumpState = NodePath("../JumpState")
 FallState = NodePath("../FallState")
-WinnerState = NodePath("../WinnerState")
 
 [node name="JumpState" type="Node" parent="StateMachine" node_paths=PackedStringArray("FallState")]
 script = ExtResource("12_k5830")

@@ -92,7 +92,7 @@ public partial class CharacterStateMachine : Node
 	public void ChangeState(State newState)
 	{
 		// Check if the NewState is set.
-		if(newState == null)
+		if(!IsInstanceValid(newState))
 		{
 			GD.PushError("NewState is null.");
 			return;

@@ -1,3 +1,4 @@
+using System;
 using Godot;
 
 public partial class GameManager : Node
@@ -69,4 +70,10 @@ public partial class GameManager : Node
 			isInitialized = false;
 		}
 	}
+
+    public void RestartLevel()
+    {
+        isInitialized = false;
+		GetTree().ReloadCurrentScene();
+    }
 }

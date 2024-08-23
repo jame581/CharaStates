@@ -14,9 +14,6 @@ public partial class MovementState : State
 	[Export]
 	public State FallState { get; set; }
 
-	[Export]
-	public State WinnerState { get; set; }
-
 	public override void OnEnter()
 	{
 		base.OnEnter();

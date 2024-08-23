@@ -3,9 +3,6 @@ using Godot;
 public partial class Player : CharacterBody2D
 {
 	[Export]
-	public State WinnerState { get; set; }
-
-	[Export]
 	public Panel PauseMenu { get; set; }
 
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -22,6 +19,8 @@ public partial class Player : CharacterBody2D
 	private CharacterStateMachine stateMachine;
 
 	private int coins = 0;
+
+	private WinnerState winnerState;
 
 	public override void _Ready()
 	{
@@ -42,6 +41,10 @@ public partial class Player : CharacterBody2D
 		stateDebugLabel = GetNode<Label>("StateDebugLabel");
 		if (stateDebugLabel == null)
 			GD.PrintErr("DebugLabel node not found.");
+
+		winnerState = GetNode<WinnerState>("StateMachine/WinnerState");
+		if (winnerState == null)
+			GD.PrintErr("WinnerState node not found.");
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -73,7 +76,12 @@ public partial class Player : CharacterBody2D
 	public void SetWinnerState()
 	{
 		GD.Print("SetWinnerState");
-		stateMachine.ChangeState(WinnerState);
+		if (winnerState == null)
+		{
+			GD.PrintErr("WinnerState is not set.");
+			return;
+		}
+		stateMachine.ChangeState(winnerState);
 	}
 
 	public void AddCoins(int value)

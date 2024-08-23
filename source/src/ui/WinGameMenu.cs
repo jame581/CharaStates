@@ -6,6 +6,8 @@ public partial class WinGameMenu : Panel
 
 	private Button mainMenuButton;
 
+	private GameManager gameManager;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -32,6 +34,17 @@ public partial class WinGameMenu : Panel
 			mainMenuButton.Pressed += OnMainMenuButtonPressed;
 			GD.Print("Win Game Menu - Main menu button binded");
 		}
+
+		// Get the GameManager node
+		gameManager = GetNode<GameManager>("/root/GameManager");
+		if (gameManager == null)
+		{
+			GD.PrintErr("GameManager node not found.");
+		}
+		else
+		{
+			gameManager.InitializeGameObjects();
+		}
 	}
 
 	private void OnMainMenuButtonPressed()
@@ -44,6 +57,7 @@ public partial class WinGameMenu : Panel
 	private void OnRestartButtonPressed()
 	{
 		GD.Print("Restarting game...");
-		GetTree().ReloadCurrentScene();
+		gameManager.RestartLevel();
+		// GetTree().ReloadCurrentScene();
 	}
 }
